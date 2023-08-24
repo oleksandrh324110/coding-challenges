@@ -6,7 +6,7 @@ let sponge: Box[]
 
 new p5((p: p5) => {
 	p.setup = () => {
-		p.createCanvas(window.innerWidth, window.innerHeight, p.WEBGL)
+		p.createCanvas(window.innerWidth, window.innerHeight - 1, p.WEBGL)
 
 		sponge = []
 
