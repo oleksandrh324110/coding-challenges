@@ -1,17 +1,10 @@
 import { p } from './sketch'
 
 export class Star {
-	x: number
-	y: number
-	z: number
-	pz: number
-
-	constructor() {
-		this.x = p.random(-p.width / 2, p.width / 2)
-		this.y = p.random(-p.height / 2, p.height / 2)
-		this.z = p.random(p.min(p.width, p.height))
-		this.pz = this.z
-	}
+	x = p.random(-p.width / 2, p.width / 2)
+	y = p.random(-p.height / 2, p.height / 2)
+	z = p.random(p.min(p.width, p.height))
+	pz = this.z
 
 	update() {
 		this.pz = this.z
