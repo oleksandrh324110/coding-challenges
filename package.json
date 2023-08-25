@@ -1,0 +1,10 @@
+{
+	"devDependencies": {
+		"@types/node": "^20.5.6",
+		"@types/p5": "^1.7.0",
+		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+		"p5": "^1.7.0"
+	}
+}
