@@ -16,14 +16,20 @@ class Game {
 		this.isStarted = true
 	}
 
-	stop() {
+	restart() {
 		this.isStarted = false
+		this.init()
 	}
 
 	update() {
 		if (!this.isStarted) return
 
 		this.snake.update()
+
+		if (this.snake.canEat(this.food)) {
+			this.snake.grow()
+			this.food = new Food()
+		}
 
 		input.pressedKey = input.key
 	}

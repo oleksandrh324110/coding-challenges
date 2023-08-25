@@ -1,4 +1,4 @@
-export const frameRate = 5
+export const frameRate = 30
 
 export const boxSize = 20
 export const foodSize = boxSize - 2

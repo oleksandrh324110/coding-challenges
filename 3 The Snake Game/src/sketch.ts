@@ -8,6 +8,8 @@ const sketch = (p: p5) => {
 		p.createCanvas(window.innerWidth, window.innerHeight)
 		p.frameRate(frameRate)
 
+		p.noStroke()
+
 		game.init()
 		input.init()
 	}

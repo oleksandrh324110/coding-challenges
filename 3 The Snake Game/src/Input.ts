@@ -16,10 +16,7 @@ class Input {
 					this.key = buffKey
 				}
 
-				if (buffKey === 'r') {
-					game.stop()
-					game.init()
-				}
+				if (buffKey === 'r') return game.restart()
 
 				if (
 					(buffKey === 'w' && this.pressedKey === 's') ||
