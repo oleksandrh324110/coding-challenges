@@ -1,4 +1,5 @@
 import p5 from 'p5'
+import { p } from './sketch'
 
 export class Box {
 	pos: p5.Vector
@@ -7,14 +8,14 @@ export class Box {
 		this.pos = new p5.Vector(x, y, z)
 	}
 
-	show(p: p5) {
+	show() {
 		p.push()
 		p.translate(this.pos.x, this.pos.y, this.pos.z)
 		p.box(this.r)
 		p.pop()
 	}
 
-	generate(p: p5) {
+	generate() {
 		const boxes: Box[] = []
 
 		const newR = this.r / 3
