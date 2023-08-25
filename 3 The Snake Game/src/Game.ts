@@ -1,17 +1,11 @@
 import Food from './Food'
+import { input } from './Input'
 import Snake from './Snake'
 
-export default class Game {
-	private static instance: Game
-
+class Game {
 	snake: Snake
 	food: Food
 	isStarted: boolean = false
-
-	constructor() {
-		if (Game.instance) return Game.instance
-		return (Game.instance = this)
-	}
 
 	init() {
 		this.snake = new Snake()
@@ -19,9 +13,25 @@ export default class Game {
 	}
 
 	start() {
-		if (this.isStarted) return
 		this.isStarted = true
+	}
 
-		console.log('%cGame started', 'color: green;')
+	stop() {
+		this.isStarted = false
+	}
+
+	update() {
+		if (!this.isStarted) return
+
+		this.snake.update()
+
+		input.pressedKey = input.key
+	}
+
+	show() {
+		this.food.show()
+		this.snake.show()
 	}
 }
+
+export const game = new Game()

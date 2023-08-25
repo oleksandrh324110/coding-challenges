@@ -1,33 +1,45 @@
-import Game from './Game'
-import p from './main'
+import { game } from './Game'
+import { p } from './sketch'
 
-type Direction = 'up' | 'down' | 'left' | 'right'
+type Key = 'w' | 'a' | 's' | 'd' | 'r' | undefined
 
-export default class Input {
-	private static instance: Input
-
-	key: Direction
-	pressedKey: Direction
-
-	constructor() {
-		if (Input.instance) return Input.instance
-		return (Input.instance = this)
-	}
+class Input {
+	key: Key
+	pressedKey: Key
 
 	init() {
 		p.keyPressed = () => {
-			if (this.keyCodeToDirection(p.keyCode)) {
-				console.log(this.keyCodeToDirection(p.keyCode))
+			const buffKey = this.keyCodeToKey(p.keyCode)
+			if (buffKey) {
+				if (!game.isStarted) {
+					game.start()
+					this.key = buffKey
+				}
 
-				new Game().start()
+				if (buffKey === 'r') {
+					game.stop()
+					game.init()
+				}
+
+				if (
+					(buffKey === 'w' && this.pressedKey === 's') ||
+					(buffKey === 'a' && this.pressedKey === 'd') ||
+					(buffKey === 's' && this.pressedKey === 'w') ||
+					(buffKey === 'd' && this.pressedKey === 'a')
+				)
+					return
+				else this.key = buffKey
 			}
 		}
 	}
 
-	keyCodeToDirection(keyCode: number): Direction | undefined {
-		if (keyCode === 87 || keyCode === 38) return 'up'
-		else if (keyCode === 65 || keyCode === 37) return 'left'
-		else if (keyCode === 83 || keyCode === 40) return 'down'
-		else if (keyCode === 68 || keyCode === 39) return 'right'
+	keyCodeToKey(keyCode: number): Key | undefined {
+		if (keyCode === 87 || keyCode === 38) return 'w'
+		else if (keyCode === 65 || keyCode === 37) return 'a'
+		else if (keyCode === 83 || keyCode === 40) return 's'
+		else if (keyCode === 68 || keyCode === 39) return 'd'
+		else if (keyCode === 82) return 'r'
 	}
 }
+
+export const input = new Input()
