@@ -1,4 +1,4 @@
-import p5 from 'p5'
+import { p } from './sketch'
 
 export class Star {
 	x: number
@@ -6,16 +6,17 @@ export class Star {
 	z: number
 	pz: number
 
-	constructor(p: p5) {
+	constructor() {
 		this.x = p.random(-p.width / 2, p.width / 2)
 		this.y = p.random(-p.height / 2, p.height / 2)
 		this.z = p.random(p.min(p.width, p.height))
 		this.pz = this.z
 	}
 
-	update(p: p5, speed: number) {
+	update() {
 		this.pz = this.z
 
+		const speed = p.map(p.mouseX, 0, p.width, 0, 50)
 		this.z -= speed
 
 		if (this.z < 1) {
@@ -26,7 +27,7 @@ export class Star {
 		}
 	}
 
-	show(p: p5) {
+	show() {
 		p.fill(255)
 		p.noStroke()
 
