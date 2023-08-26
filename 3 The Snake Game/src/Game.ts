@@ -32,6 +32,8 @@ class Game {
 		}
 
 		input.pressedKey = input.key
+
+		console.log(this.snake.x, this.snake.y)
 	}
 
 	show() {

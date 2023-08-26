@@ -1,9 +1,9 @@
-import { boxSize, foodColor, foodSize } from './config'
+import { boxSize, columns, foodColor, foodSize, raws } from './config'
 import { p } from './sketch'
 
 export default class Food {
-	x = p.floor(p.random(p.width / boxSize))
-	y = p.floor(p.random(p.height / boxSize))
+	x = p.floor(p.random(columns))
+	y = p.floor(p.random(raws))
 
 	show() {
 		p.fill(foodColor)
