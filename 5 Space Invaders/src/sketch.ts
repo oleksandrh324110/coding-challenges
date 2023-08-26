@@ -3,14 +3,14 @@ import Flower from './Flower'
 import Ship from './Ship'
 
 let ship: Ship
-let flower: Flower
+let flowers: Flower[] = Array(10).fill(null)
 
 const sketch = (p: p5) => {
 	p.setup = () => {
 		p.createCanvas(window.innerWidth, window.innerHeight)
 
 		ship = new Ship()
-		flower = new Flower()
+		flowers = flowers.map((el, i) => new Flower(i * 80 + (p.width - flowers.length * 80 + 80) / 2, 60))
 	}
 
 	p.keyPressed = () => {
@@ -25,7 +25,7 @@ const sketch = (p: p5) => {
 		p.background('#202124')
 
 		ship.show()
-		flower.show()
+		flowers.forEach(flower => flower.show())
 	}
 }
 

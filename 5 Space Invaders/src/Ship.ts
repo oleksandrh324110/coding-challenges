@@ -3,7 +3,7 @@ import { p } from './sketch'
 export type Dir = -1 | 1
 
 export default class Ship {
-	x = p.height / 2
+	x = p.width / 2
 
 	show() {
 		p.fill(255)

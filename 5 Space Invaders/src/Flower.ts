@@ -2,10 +2,7 @@ import { Dir } from './Ship'
 import { p } from './sketch'
 
 export default class Enemy {
-	x = p.width / 2
-	y = 50
-
-	constructor() {}
+	constructor(private x: number, private y: number) {}
 
 	show() {
 		p.fill(255, 0, 200)
