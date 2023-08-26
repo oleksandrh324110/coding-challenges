@@ -1,13 +1,16 @@
 import p5 from 'p5'
+import Flower from './Flower'
 import Ship from './Ship'
 
 let ship: Ship
+let flower: Flower
 
 const sketch = (p: p5) => {
 	p.setup = () => {
-		p.createCanvas(window.innerWidth, window.innerHeight - 1)
+		p.createCanvas(window.innerWidth, window.innerHeight)
 
 		ship = new Ship()
+		flower = new Flower()
 	}
 
 	p.keyPressed = () => {
@@ -22,6 +25,7 @@ const sketch = (p: p5) => {
 		p.background('#202124')
 
 		ship.show()
+		flower.show()
 	}
 }
 
