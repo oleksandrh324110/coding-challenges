@@ -1,15 +1,32 @@
 import { Dir } from './Ship'
 import { p } from './sketch'
 
-export default class Enemy {
-	constructor(private x: number, private y: number) {}
+export const flowerRadius = 40
+
+export default class Flower {
+	r = flowerRadius
+	xDir: Dir = 1
+	canBeHit = true
+	isRemoved = false
+
+	constructor(public x: number, public y: number) {}
 
 	show() {
 		p.fill(255, 0, 200)
-		p.ellipse(this.x, this.y, 60, 60)
+		p.circle(this.x, this.y, this.r * 2)
 	}
 
-	move(dir: Dir) {
-		this.x += dir * 5
+	move() {
+		this.x += this.xDir
+	}
+
+	shiftDown() {
+		this.xDir *= -1
+		this.y += this.r * 2
+	}
+
+	remove() {
+		this.canBeHit = false
+		this.isRemoved = true
 	}
 }
