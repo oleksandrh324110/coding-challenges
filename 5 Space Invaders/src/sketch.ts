@@ -6,7 +6,7 @@ import { monitorRefreshRate } from './utils'
 
 let ship: Ship
 let drops: Drop[] = []
-let flowers: Flower[] = Array(10).fill(null)
+let flowers: Flower[] = Array(11).fill(null)
 
 const sketch = (p: p5) => {
 	p.setup = async () => {
