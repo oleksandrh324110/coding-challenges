@@ -13,7 +13,6 @@ const sketch = (p: p5) => {
 		p.createCanvas(window.innerWidth, window.innerHeight)
 
 		p.frameRate(await monitorRefreshRate())
-		// p.frameRate(20)
 
 		p.noStroke()
 		p.rectMode(p.CENTER)
