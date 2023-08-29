@@ -18,7 +18,7 @@ const getDirs = (): string[] => {
 
 const LinksToChallengesPlugin = () => {
 	const links = getDirs()
-		.map(dir => `<a href="/${dir}/">${titleCase(dir.replace(/-/g, ' '))}</a>`)
+		.map(dir => `<a href="${dir}/">${titleCase(dir.replace(/-/g, ' '))}</a>`)
 		.join('<br />\n\t\t')
 
 	return {
