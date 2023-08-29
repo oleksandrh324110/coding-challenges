@@ -6,6 +6,7 @@ let drops: Drop[] = Array.from({ length: 500 })
 const sketch = (p: p5) => {
 	p.setup = () => {
 		p.createCanvas(window.innerWidth, window.innerHeight - 1)
+		p.frameRate(240)
 
 		drops = drops.map(() => new Drop())
 	}

@@ -12,8 +12,7 @@ let flowers: Flower[] = Array(flowersStartCount).fill(null)
 const sketch = (p: p5) => {
 	p.setup = () => {
 		p.createCanvas(window.innerWidth, window.innerHeight)
-
-		p.frameRate(120)
+		p.frameRate(240)
 
 		p.noStroke()
 		p.rectMode(p.CENTER)

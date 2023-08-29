@@ -1,5 +1,3 @@
-export const frameRate = 15
-
 export const boxSize = 20
 export const raws = Math.floor(window.innerHeight / boxSize)
 export const columns = Math.floor(window.innerWidth / boxSize)

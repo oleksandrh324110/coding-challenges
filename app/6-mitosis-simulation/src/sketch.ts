@@ -6,7 +6,7 @@ let cells: Cell[] = []
 const sketch = (p: p5) => {
 	p.setup = () => {
 		p.createCanvas(window.innerWidth, window.innerHeight)
-		p.frameRate(120)
+		p.frameRate(240)
 
 		cells.push(new Cell())
 	}
@@ -29,6 +29,9 @@ const sketch = (p: p5) => {
 
 	p.draw = () => {
 		p.background('white')
+
+		p.textSize(32)
+		p.text(`Cells: ${cells.length}`, 10, 30)
 
 		cells.forEach(cell => {
 			cell.move()

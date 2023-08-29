@@ -7,6 +7,7 @@ let sponge: Box[] = []
 const sketch = (p: p5) => {
 	p.setup = () => {
 		p.createCanvas(window.innerWidth, window.innerHeight, p.WEBGL)
+		p.frameRate(240)
 
 		sponge.push(new Box(0, 0, 0, 200))
 	}

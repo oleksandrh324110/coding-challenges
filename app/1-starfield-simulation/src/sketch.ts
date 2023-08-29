@@ -6,6 +6,7 @@ let stars: Star[] = Array.from({ length: 500 })
 const sketch = (p: p5) => {
 	p.setup = () => {
 		p.createCanvas(window.innerWidth, window.innerHeight)
+		p.frameRate(240)
 
 		stars = stars.map(() => new Star())
 	}
