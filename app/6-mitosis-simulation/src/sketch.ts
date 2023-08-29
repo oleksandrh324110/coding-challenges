@@ -30,8 +30,9 @@ const sketch = (p: p5) => {
 	p.draw = () => {
 		p.background('white')
 
-		p.textSize(32)
-		p.text(`Cells: ${cells.length}`, 10, 30)
+		const text = `Press SPACE to spawn a new blob`
+		p.textSize(16)
+		p.text(text, 5, 18)
 
 		cells.forEach(cell => {
 			cell.move()
