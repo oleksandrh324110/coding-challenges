@@ -2,7 +2,6 @@ import p5 from 'p5'
 import Drop from './Drop'
 import Flower, { flowerRadius } from './Flower'
 import Ship from './Ship'
-import { monitorRefreshRate } from './utils'
 
 let ship: Ship
 let drops: Drop[] = []
@@ -12,7 +11,7 @@ const sketch = (p: p5) => {
 	p.setup = () => {
 		p.createCanvas(window.innerWidth, window.innerHeight)
 
-		p.frameRate(monitorRefreshRate)
+		p.frameRate(120)
 
 		p.noStroke()
 		p.rectMode(p.CENTER)

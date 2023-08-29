@@ -1,13 +1,12 @@
 import p5 from 'p5'
 import { Cell } from './Cell'
-import { monitorRefreshRate } from './utils'
 
 let cells: Cell[] = []
 
 const sketch = (p: p5) => {
 	p.setup = () => {
 		p.createCanvas(window.innerWidth, window.innerHeight)
-		p.frameRate(monitorRefreshRate)
+		p.frameRate(120)
 
 		cells.push(new Cell())
 	}
