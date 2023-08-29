@@ -17,7 +17,7 @@ export default class Flower {
 	}
 
 	move() {
-		this.x += this.xDir
+		this.x += this.xDir * 3
 	}
 
 	shiftDown() {

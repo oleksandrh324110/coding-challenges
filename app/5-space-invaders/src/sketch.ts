@@ -5,7 +5,9 @@ import Ship from './Ship'
 
 let ship: Ship
 let drops: Drop[] = []
-let flowers: Flower[] = Array(5).fill(null)
+
+const flowersStartCount = Math.floor(window.innerWidth / 150)
+let flowers: Flower[] = Array(flowersStartCount).fill(null)
 
 const sketch = (p: p5) => {
 	p.setup = () => {
@@ -46,17 +48,14 @@ const sketch = (p: p5) => {
 	p.draw = () => {
 		p.background('white')
 
-		let edge = false
-
-		flowers.forEach(flower => {
+		const isEdgeTouched = flowers.some(flower => {
 			flower.move()
-
 			if (flower.x > p.width - flower.r || flower.x < flower.r) {
-				edge = true
+				return true
 			}
 		})
 
-		if (edge) {
+		if (isEdgeTouched) {
 			flowers.forEach(flower => {
 				flower.shiftDown()
 			})
