@@ -24,7 +24,6 @@ const LinksToChallengesPlugin = () => {
 	return {
 		name: 'html-transform',
 		transformIndexHtml(html) {
-			console.log(html)
 			return html.replace('<LinksToChallenges />', links)
 		}
 	}
