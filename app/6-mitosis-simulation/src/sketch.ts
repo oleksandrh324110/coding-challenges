@@ -21,7 +21,6 @@ const sketch = (p: p5) => {
 		cells.forEach(cell => {
 			if (cell.clicked()) {
 				cells = cells.filter(c => c !== cell)
-
 				cells.push(...cell.mitosis())
 			}
 		})
@@ -30,7 +29,7 @@ const sketch = (p: p5) => {
 	p.draw = () => {
 		p.background('white')
 
-		const text = `Press SPACE to spawn a new blob`
+		const text = `Press SPACE to spawn a new blob.\nCLICK on the blob to split into two`
 		p.textSize(16)
 		p.text(text, 5, 18)
 
