@@ -9,10 +9,10 @@ let drops: Drop[] = []
 let flowers: Flower[] = Array(5).fill(null)
 
 const sketch = (p: p5) => {
-	p.setup = async () => {
+	p.setup = () => {
 		p.createCanvas(window.innerWidth, window.innerHeight)
 
-		p.frameRate(await monitorRefreshRate())
+		p.frameRate(monitorRefreshRate)
 
 		p.noStroke()
 		p.rectMode(p.CENTER)
