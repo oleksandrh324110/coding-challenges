@@ -2,8 +2,6 @@ import { readdirSync } from 'fs'
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
-__dirname += '/app'
-
 const titleCase = str => {
 	return str
 		.toLowerCase()
@@ -13,7 +11,7 @@ const titleCase = str => {
 }
 
 const getDirs = (): string[] => {
-	return readdirSync(__dirname, { withFileTypes: true })
+	return readdirSync(__dirname + '/app', { withFileTypes: true })
 		.map(dir => dir.isDirectory() && dir.name)
 		.filter(Boolean) as string[]
 }
@@ -37,17 +35,17 @@ export default defineConfig(({ mode }) => {
 		base: mode === 'production' ? '/coding-challenges/' : '/',
 		root: 'app',
 		build: {
+			outDir: '../docs',
 			rollupOptions: {
 				input: {
-					main: resolve(__dirname, 'index.html'),
+					main: resolve('app', 'index.html'),
 					...Object.fromEntries(
 						getDirs().map(dir => {
-							return [dir, resolve(__dirname, dir, 'index.html')]
+							return [dir, resolve('app', dir, 'index.html')]
 						})
 					)
 				}
-			},
-			outDir: '../docs'
+			}
 		}
 	}
 })
