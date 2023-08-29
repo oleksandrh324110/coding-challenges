@@ -29,9 +29,10 @@ const LinksToChallengesPlugin = () => {
 	}
 }
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
 	return {
 		plugins: [LinksToChallengesPlugin()],
+		base: mode === 'production' ? '/code-challenges/' : '/',
 		indexHtmlTransforms: [
 			{
 				transform({ code }) {
