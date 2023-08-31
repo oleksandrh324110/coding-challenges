@@ -8,8 +8,10 @@ const sketch = (p: p5) => {
 		p.createCanvas(window.innerWidth, window.innerHeight, p.WEBGL)
 		p.frameRate(240)
 
-		// @ts-ignore
-		p.createEasyCam({ distance: 500 })
+		setTimeout(() => {
+			// @ts-ignore
+			p.createEasyCam({ distance: 680 })
+		}, 100)
 
 		p.noStroke()
 
