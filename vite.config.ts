@@ -13,10 +13,12 @@ const titleCase = str => {
 		.join(' ')
 }
 
-const getDirs = (): string[] => {
-	return readdirSync(__dirname + '/app', { withFileTypes: true })
-		.map(dir => dir.isDirectory() && dir.name)
-		.filter(Boolean) as string[]
+const getDirs = () => {
+	return (
+		readdirSync(__dirname + '/app', { withFileTypes: true })
+			.map(dir => dir.isDirectory() && dir.name)
+			.filter(Boolean) as string[]
+	).sort((a, b) => +a.slice(0, a.indexOf('-')) - +b.slice(0, b.indexOf('-')))
 }
 
 const linksToChallengesPlugin = () => {
