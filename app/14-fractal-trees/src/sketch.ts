@@ -31,8 +31,8 @@ const sketch = (p: p5) => {
 		p.stroke(255)
 		p.translate(p.width / 2, p.height * 0.85)
 
-		angle = p.map(p.mouseX, 0, p.width, 0, p.PI)
-		length = p.map(p.mouseY, p.height, 0, 0, 200)
+		angle = p.mouseX ? p.map(p.mouseX, 0, p.width, 0, p.PI) : angle
+		length = p.mouseY ? p.map(p.mouseY, p.height, 0, 0, 200) : length
 
 		branch(length)
 	}
