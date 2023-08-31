@@ -1,6 +1,10 @@
-import { readdirSync } from 'fs'
+import { readdirSync, rmSync } from 'fs'
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
+
+try {
+	rmSync('docs', { recursive: true })
+} catch (err) {}
 
 const titleCase = str => {
 	return str
