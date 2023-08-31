@@ -4,7 +4,6 @@ import { defineConfig } from 'vite'
 
 const titleCase = str => {
 	return str
-		.toLowerCase()
 		.split(' ')
 		.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
 		.join(' ')
@@ -16,7 +15,7 @@ const getDirs = (): string[] => {
 		.filter(Boolean) as string[]
 }
 
-const LinksToChallengesPlugin = () => {
+const linksToChallengesPlugin = () => {
 	const links = getDirs()
 		.map(dir => `<a href="${dir}/">${titleCase(dir.replace(/-/g, ' '))}</a>`)
 		.join('\n\t\t')
@@ -31,7 +30,7 @@ const LinksToChallengesPlugin = () => {
 
 export default defineConfig(({ mode }) => {
 	return {
-		plugins: [LinksToChallengesPlugin()],
+		plugins: [linksToChallengesPlugin()],
 		base: mode === 'production' ? '/coding-challenges/' : '/',
 		root: 'app',
 		build: {
