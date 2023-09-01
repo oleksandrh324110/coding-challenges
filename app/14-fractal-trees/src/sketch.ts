@@ -12,12 +12,12 @@ const sketch = (p: p5) => {
 
 		p.push()
 		p.rotate(angle)
-		branch(length * (3 / 4))
+		branch(length * (2 / 3))
 		p.pop()
 
 		p.push()
 		p.rotate(-angle)
-		branch(length * (3 / 4))
+		branch(length * (2 / 3))
 		p.pop()
 	}
 
