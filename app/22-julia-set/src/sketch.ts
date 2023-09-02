@@ -1,12 +1,14 @@
 import p5 from 'p5'
 
-let maxIterations = 200
+let maxIterations = 50
 
 const sketch = (p: p5) => {
 	p.setup = () => {
 		p.createCanvas(window.innerWidth, window.innerHeight)
 		p.frameRate(240)
 		p.pixelDensity(1)
+
+		console.log(p.width * p.height)
 	}
 
 	p.draw = () => {
@@ -17,18 +19,14 @@ const sketch = (p: p5) => {
 				let a = p.map(x, 0, p.width, -1.5, 1.5) * (window.innerWidth / window.innerHeight)
 				let b = p.map(y, 0, p.height, -1.5, 1.5)
 
-				const ca = a
-				const cb = b
-
-				let n = 0
-				for (; n < maxIterations; n++) {
+				for (var n = 0; n < maxIterations; n++) {
 					const aa = a * a - b * b
 					const bb = 2 * a * b
 
 					if (p.abs(aa + bb) > 16) break
 
-					a = aa + ca
-					b = bb + cb
+					a = aa + p.map(p.mouseX, 0, p.width, -2, 2)
+					b = bb + p.map(p.mouseY, 0, p.height, -2, 2)
 				}
 
 				let bright = p.map(n, 0, maxIterations, 0, 255)
@@ -43,7 +41,6 @@ const sketch = (p: p5) => {
 		}
 
 		p.updatePixels()
-		p.noLoop()
 	}
 }
 
