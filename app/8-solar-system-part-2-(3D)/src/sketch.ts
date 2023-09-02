@@ -11,7 +11,7 @@ const sketch = (p: p5) => {
 		setTimeout(() => {
 			// @ts-ignore
 			p.createEasyCam({ distance: 680 })
-		}, 100)
+		}, 200)
 
 		p.noStroke()
 
